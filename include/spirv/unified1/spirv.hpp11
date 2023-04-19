@@ -1158,11 +1158,18 @@ enum class Capability : unsigned {
     AtomicFloat16AddEXT = 6095,
     DebugInfoModuleINTEL = 6114,
     BFloat16ConversionINTEL = 6115,
+    JointMatrixINTEL = 6118,
     SplitBarrierINTEL = 6141,
     FPGAKernelAttributesv2INTEL = 6161,
     FPGALatencyControlINTEL = 6171,
     FPGAArgumentInterfacesINTEL = 6174,
     GroupUniformArithmeticKHR = 6400,
+    PackedJointMatrixINTEL = 6434,
+    JointMatrixWIInstructionsINTEL = 6435,
+    JointMatrixTF32ComponentTypeINTEL = 6436,
+    JointMatrixBF16ComponentTypeINTEL = 6437,
+    JointMatrixPackedInt2ComponentTypeINTEL = 6438,
+    JointMatrixPackedInt4ComponentTypeINTEL = 6439,
     Max = 0x7fffffff,
 };
 
@@ -1972,6 +1979,13 @@ enum class Op : unsigned {
     OpSpecConstantCompositeContinuedINTEL = 6092,
     OpConvertFToBF16INTEL = 6116,
     OpConvertBF16ToFINTEL = 6117,
+    OpTypeJointMatrixINTEL = 6119,
+    OpJointMatrixLoadINTEL = 6120,
+    OpJointMatrixStoreINTEL = 6121,
+    OpJointMatrixMadINTEL = 6122,
+    OpJointMatrixSUMadINTEL = 6128,
+    OpJointMatrixUSMadINTEL = 6129,
+    OpJointMatrixUUMadINTEL = 6130,
     OpControlBarrierArriveINTEL = 6142,
     OpControlBarrierWaitINTEL = 6143,
     OpGroupIMulKHR = 6401,
@@ -1982,6 +1996,8 @@ enum class Op : unsigned {
     OpGroupLogicalAndKHR = 6406,
     OpGroupLogicalOrKHR = 6407,
     OpGroupLogicalXorKHR = 6408,
+    OpJointMatrixWorkItemLengthINTEL = 6410,
+    OpJointMatrixGetElementCoordINTEL = 6440,
     Max = 0x7fffffff,
 };
 
@@ -2684,6 +2700,13 @@ inline void HasResultAndType(Op opcode, bool *hasResult, bool *hasResultType) {
     case Op::OpSpecConstantCompositeContinuedINTEL: *hasResult = false; *hasResultType = false; break;
     case Op::OpConvertFToBF16INTEL: *hasResult = true; *hasResultType = true; break;
     case Op::OpConvertBF16ToFINTEL: *hasResult = true; *hasResultType = true; break;
+    case Op::OpTypeJointMatrixINTEL: *hasResult = true; *hasResultType = true; break;
+    case Op::OpJointMatrixLoadINTEL: *hasResult = true; *hasResultType = true; break;
+    case Op::OpJointMatrixStoreINTEL: *hasResult = false; *hasResultType = false; break;
+    case Op::OpJointMatrixMadINTEL: *hasResult = true; *hasResultType = true; break;
+    case Op::OpJointMatrixSUMadINTEL: *hasResult = true; *hasResultType = true; break;
+    case Op::OpJointMatrixUSMadINTEL: *hasResult = true; *hasResultType = true; break;
+    case Op::OpJointMatrixUUMadINTEL: *hasResult = true; *hasResultType = true; break;
     case Op::OpControlBarrierArriveINTEL: *hasResult = false; *hasResultType = false; break;
     case Op::OpControlBarrierWaitINTEL: *hasResult = false; *hasResultType = false; break;
     case Op::OpGroupIMulKHR: *hasResult = true; *hasResultType = true; break;
@@ -2694,6 +2717,8 @@ inline void HasResultAndType(Op opcode, bool *hasResult, bool *hasResultType) {
     case Op::OpGroupLogicalAndKHR: *hasResult = true; *hasResultType = true; break;
     case Op::OpGroupLogicalOrKHR: *hasResult = true; *hasResultType = true; break;
     case Op::OpGroupLogicalXorKHR: *hasResult = true; *hasResultType = true; break;
+    case Op::OpJointMatrixWorkItemLengthINTEL: *hasResult = true; *hasResultType = true; break;
+    case Op::OpJointMatrixGetElementCoordINTEL: *hasResult = true; *hasResultType = true; break;
     }
 }
 #endif /* SPV_ENABLE_UTILITY_CODE */

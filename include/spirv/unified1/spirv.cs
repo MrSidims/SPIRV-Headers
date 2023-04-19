@@ -1162,11 +1162,18 @@ namespace Spv
             AtomicFloat16AddEXT = 6095,
             DebugInfoModuleINTEL = 6114,
             BFloat16ConversionINTEL = 6115,
+            JointMatrixINTEL = 6118,
             SplitBarrierINTEL = 6141,
             FPGAKernelAttributesv2INTEL = 6161,
             FPGALatencyControlINTEL = 6171,
             FPGAArgumentInterfacesINTEL = 6174,
             GroupUniformArithmeticKHR = 6400,
+            PackedJointMatrixINTEL = 6434,
+            JointMatrixWIInstructionsINTEL = 6435,
+            JointMatrixTF32ComponentTypeINTEL = 6436,
+            JointMatrixBF16ComponentTypeINTEL = 6437,
+            JointMatrixPackedInt2ComponentTypeINTEL = 6438,
+            JointMatrixPackedInt4ComponentTypeINTEL = 6439,
         }
 
         public enum RayFlagsShift
@@ -1978,6 +1985,13 @@ namespace Spv
             OpSpecConstantCompositeContinuedINTEL = 6092,
             OpConvertFToBF16INTEL = 6116,
             OpConvertBF16ToFINTEL = 6117,
+            OpTypeJointMatrixINTEL = 6119,
+            OpJointMatrixLoadINTEL = 6120,
+            OpJointMatrixStoreINTEL = 6121,
+            OpJointMatrixMadINTEL = 6122,
+            OpJointMatrixSUMadINTEL = 6128,
+            OpJointMatrixUSMadINTEL = 6129,
+            OpJointMatrixUUMadINTEL = 6130,
             OpControlBarrierArriveINTEL = 6142,
             OpControlBarrierWaitINTEL = 6143,
             OpGroupIMulKHR = 6401,
@@ -1988,6 +2002,8 @@ namespace Spv
             OpGroupLogicalAndKHR = 6406,
             OpGroupLogicalOrKHR = 6407,
             OpGroupLogicalXorKHR = 6408,
+            OpJointMatrixWorkItemLengthINTEL = 6410,
+            OpJointMatrixGetElementCoordINTEL = 6440,
         }
     }
 }

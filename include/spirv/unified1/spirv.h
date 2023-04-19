@@ -1162,11 +1162,18 @@ typedef enum SpvCapability_ {
     SpvCapabilityAtomicFloat16AddEXT = 6095,
     SpvCapabilityDebugInfoModuleINTEL = 6114,
     SpvCapabilityBFloat16ConversionINTEL = 6115,
+    SpvCapabilityJointMatrixINTEL = 6118,
     SpvCapabilitySplitBarrierINTEL = 6141,
     SpvCapabilityFPGAKernelAttributesv2INTEL = 6161,
     SpvCapabilityFPGALatencyControlINTEL = 6171,
     SpvCapabilityFPGAArgumentInterfacesINTEL = 6174,
     SpvCapabilityGroupUniformArithmeticKHR = 6400,
+    SpvCapabilityPackedJointMatrixINTEL = 6434,
+    SpvCapabilityJointMatrixWIInstructionsINTEL = 6435,
+    SpvCapabilityJointMatrixTF32ComponentTypeINTEL = 6436,
+    SpvCapabilityJointMatrixBF16ComponentTypeINTEL = 6437,
+    SpvCapabilityJointMatrixPackedInt2ComponentTypeINTEL = 6438,
+    SpvCapabilityJointMatrixPackedInt4ComponentTypeINTEL = 6439,
     SpvCapabilityMax = 0x7fffffff,
 } SpvCapability;
 
@@ -1976,6 +1983,13 @@ typedef enum SpvOp_ {
     SpvOpSpecConstantCompositeContinuedINTEL = 6092,
     SpvOpConvertFToBF16INTEL = 6116,
     SpvOpConvertBF16ToFINTEL = 6117,
+    SpvOpTypeJointMatrixINTEL = 6119,
+    SpvOpJointMatrixLoadINTEL = 6120,
+    SpvOpJointMatrixStoreINTEL = 6121,
+    SpvOpJointMatrixMadINTEL = 6122,
+    SpvOpJointMatrixSUMadINTEL = 6128,
+    SpvOpJointMatrixUSMadINTEL = 6129,
+    SpvOpJointMatrixUUMadINTEL = 6130,
     SpvOpControlBarrierArriveINTEL = 6142,
     SpvOpControlBarrierWaitINTEL = 6143,
     SpvOpGroupIMulKHR = 6401,
@@ -1986,6 +2000,8 @@ typedef enum SpvOp_ {
     SpvOpGroupLogicalAndKHR = 6406,
     SpvOpGroupLogicalOrKHR = 6407,
     SpvOpGroupLogicalXorKHR = 6408,
+    SpvOpJointMatrixWorkItemLengthINTEL = 6410,
+    SpvOpJointMatrixGetElementCoordINTEL = 6440,
     SpvOpMax = 0x7fffffff,
 } SpvOp;
 
@@ -2688,6 +2704,13 @@ inline void SpvHasResultAndType(SpvOp opcode, bool *hasResult, bool *hasResultTy
     case SpvOpSpecConstantCompositeContinuedINTEL: *hasResult = false; *hasResultType = false; break;
     case SpvOpConvertFToBF16INTEL: *hasResult = true; *hasResultType = true; break;
     case SpvOpConvertBF16ToFINTEL: *hasResult = true; *hasResultType = true; break;
+    case SpvOpTypeJointMatrixINTEL: *hasResult = true; *hasResultType = true; break;
+    case SpvOpJointMatrixLoadINTEL: *hasResult = true; *hasResultType = true; break;
+    case SpvOpJointMatrixStoreINTEL: *hasResult = false; *hasResultType = false; break;
+    case SpvOpJointMatrixMadINTEL: *hasResult = true; *hasResultType = true; break;
+    case SpvOpJointMatrixSUMadINTEL: *hasResult = true; *hasResultType = true; break;
+    case SpvOpJointMatrixUSMadINTEL: *hasResult = true; *hasResultType = true; break;
+    case SpvOpJointMatrixUUMadINTEL: *hasResult = true; *hasResultType = true; break;
     case SpvOpControlBarrierArriveINTEL: *hasResult = false; *hasResultType = false; break;
     case SpvOpControlBarrierWaitINTEL: *hasResult = false; *hasResultType = false; break;
     case SpvOpGroupIMulKHR: *hasResult = true; *hasResultType = true; break;
@@ -2698,6 +2721,8 @@ inline void SpvHasResultAndType(SpvOp opcode, bool *hasResult, bool *hasResultTy
     case SpvOpGroupLogicalAndKHR: *hasResult = true; *hasResultType = true; break;
     case SpvOpGroupLogicalOrKHR: *hasResult = true; *hasResultType = true; break;
     case SpvOpGroupLogicalXorKHR: *hasResult = true; *hasResultType = true; break;
+    case SpvOpJointMatrixWorkItemLengthINTEL: *hasResult = true; *hasResultType = true; break;
+    case SpvOpJointMatrixGetElementCoordINTEL: *hasResult = true; *hasResultType = true; break;
     }
 }
 #endif /* SPV_ENABLE_UTILITY_CODE */
