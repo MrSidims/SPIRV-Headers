@@ -2704,7 +2704,7 @@ inline void SpvHasResultAndType(SpvOp opcode, bool *hasResult, bool *hasResultTy
     case SpvOpSpecConstantCompositeContinuedINTEL: *hasResult = false; *hasResultType = false; break;
     case SpvOpConvertFToBF16INTEL: *hasResult = true; *hasResultType = true; break;
     case SpvOpConvertBF16ToFINTEL: *hasResult = true; *hasResultType = true; break;
-    case SpvOpTypeJointMatrixINTEL: *hasResult = true; *hasResultType = true; break;
+    case SpvOpTypeJointMatrixINTEL: *hasResult = true; *hasResultType = false; break;
     case SpvOpJointMatrixLoadINTEL: *hasResult = true; *hasResultType = true; break;
     case SpvOpJointMatrixStoreINTEL: *hasResult = false; *hasResultType = false; break;
     case SpvOpJointMatrixMadINTEL: *hasResult = true; *hasResultType = true; break;

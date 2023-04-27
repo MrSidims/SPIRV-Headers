@@ -2700,7 +2700,7 @@ inline void HasResultAndType(Op opcode, bool *hasResult, bool *hasResultType) {
     case Op::OpSpecConstantCompositeContinuedINTEL: *hasResult = false; *hasResultType = false; break;
     case Op::OpConvertFToBF16INTEL: *hasResult = true; *hasResultType = true; break;
     case Op::OpConvertBF16ToFINTEL: *hasResult = true; *hasResultType = true; break;
-    case Op::OpTypeJointMatrixINTEL: *hasResult = true; *hasResultType = true; break;
+    case Op::OpTypeJointMatrixINTEL: *hasResult = true; *hasResultType = false; break;
     case Op::OpJointMatrixLoadINTEL: *hasResult = true; *hasResultType = true; break;
     case Op::OpJointMatrixStoreINTEL: *hasResult = false; *hasResultType = false; break;
     case Op::OpJointMatrixMadINTEL: *hasResult = true; *hasResultType = true; break;

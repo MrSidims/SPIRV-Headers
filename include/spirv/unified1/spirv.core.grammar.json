@@ -9169,7 +9169,6 @@
       "class"  : "@exclude",
       "opcode" : 6119,
       "operands" : [
-        { "kind" : "IdResultType" },
         { "kind" : "IdResult" },
         { "kind" : "IdRef",   "name" : "'Component Type'" },
         { "kind" : "IdRef",   "name" : "'Row Count'" },
